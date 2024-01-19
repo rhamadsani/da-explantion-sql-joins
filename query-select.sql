@@ -1,0 +1,53 @@
+-- INNER JOIN
+SELECT A.PK AS A_PK, A.Value AS A_Value,
+       B.Value AS B_Value, B.PK AS B_PK
+FROM Table_A as A
+INNER JOIN Table_B as B
+ON A.PK = B.PK
+
+-- LEFT JOIN
+SELECT A.PK AS A_PK, A.Value AS A_Value,
+B.Value AS B_Value, B.PK AS B_PK
+FROM Table_A as A
+LEFT JOIN Table_B as B
+ON A.PK = B.PK
+
+-- RIGHT JOIN
+SELECT A.PK AS A_PK, A.Value AS A_Value,
+B.Value AS B_Value, B.PK AS B_PK
+FROM Table_A A
+RIGHT JOIN Table_B B
+ON A.PK = B.PK
+
+-- OUTER JOIN
+SELECT A.PK AS A_PK, A.Value AS A_Value,
+B.Value AS B_Value, B.PK AS B_PK
+FROM Table_A A
+FULL OUTER JOIN Table_B B
+ON A.PK = B.PK
+
+-- LEFT EXCLUDING JOIN
+SELECT A.PK AS A_PK, A.Value AS A_Value,
+B.Value AS B_Value, B.PK AS B_PK
+FROM Table_A A
+LEFT JOIN Table_B B
+ON A.PK = B.PK
+WHERE B.PK IS null
+
+
+-- RIGHT EXCLUDING JOIN
+SELECT A.PK AS A_PK, A.Value AS A_Value,
+B.Value AS B_Value, B.PK AS B_PK
+FROM Table_A A
+RIGHT JOIN Table_B B
+ON A.PK = B.PK
+WHERE A.PK IS null
+
+-- OUTER EXCLUDING JOIN
+SELECT A.PK AS A_PK, A.Value AS A_Value,
+B.Value AS B_Value, B.PK AS B_PK
+FROM Table_A A
+FULL OUTER JOIN Table_B B
+ON A.PK = B.PK
+WHERE A.PK IS NULL
+OR B.PK IS NULL
